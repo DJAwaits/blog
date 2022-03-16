@@ -1,4 +1,4 @@
-const {Comment} = require('../models');
+const {Comment, Reply} = require('../models');
 
 module.exports.createComment = async function(req, res){
     let articleId = req.params.articleId;
@@ -17,9 +17,9 @@ module.exports.addReply = async function(req, res){
     await Reply.create({
         author_name: req.body.author_name,
         body: req.body.body,
-        comment_on: new Date,
+        commented_on: new Date,
         article_id: articleId,
-        parent_comment_id:parentComment.id
+        parent_comment_id: parentComment.id
     });
-    req.redirect(`/articles/${articleId}`);
+    res.redirect(`/article/${articleId}`);
 }

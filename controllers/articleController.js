@@ -31,7 +31,7 @@ module.exports.displayArticle = async function(req, res){
                 as: 'comments',
                 required: false,
                 include: [{
-                    model:Reply,
+                    model: Reply,
                     as: 'replies',
                     required:false
                 }]
