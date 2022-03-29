@@ -14,7 +14,7 @@ async function verifyUser(username, password, done) {
     });
     //if no user, or passwords do not match, call done with a failure message
     if (!user) {
-        return done(bull, false, {message: 'Incorrect email or password.'});
+        return done(null, false, {message: 'Incorrect email or password.'});
     }
     //passed authentication, so user passes
     return done(false, {
